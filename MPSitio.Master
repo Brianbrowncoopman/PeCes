@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>PeCes</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <img src="Static/logo.PNG" alt="Logo PeCes" width="150" height="100"/>
+                    </td>
+                    <td>
+                        <h1>PeCes</h1>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="nav-menu">
+                <ul>
+                    <li><asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="lnkCreacionTicket" runat="server" NavigateUrl="~/CreacionTicket.aspx">Agregar Ticket</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="lnkListarTodos" runat="server" NavigateUrl="~/ListarTickets.aspx">Listar todos los tickets</asp:HyperLink></li>
+                </ul>
+            </div>
+
+            <div class="busqueda-avanzada" style="padding: 10px; margin-top: 10px; background-color: #f2f2f2;">
+                <h4>Búsqueda Avanzada</h4>
+                <asp:Label ID="lblBuscar" runat="server" Text="Buscar por cliente, rut o estado:"></asp:Label>
+                <asp:TextBox ID="txtFiltroBusqueda" runat="server"></asp:TextBox>
+                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
+            </div>
+            
+            <hr />
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
