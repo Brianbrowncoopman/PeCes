@@ -12,13 +12,32 @@
 
 
     <asp:GridView ID="gvTickets" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
-        <Columns>
-            <asp:BoundField DataField="Cliente.Nombre" HeaderText="Nombre Cliente" />
-            <asp:BoundField DataField="Cliente.Rut" HeaderText="RUT" />
-            <asp:BoundField DataField="Producto" HeaderText="Producto" />
-            <asp:BoundField DataField="Descripción" HeaderText="Descripción" />
-            <asp:BoundField DataField="Estado" HeaderText="Estado" />
-            <asp:BoundField DataField="_createdAt" HeaderText="Fecha Creación" DataFormatString="{0:dd/MM/yyyy HH:mm}" />
-        </Columns>
-    </asp:GridView>
+    <Columns>
+        <asp:BoundField DataField="Id" HeaderText="ID del Ticket" />
+
+        <asp:TemplateField HeaderText="Nombre Cliente">
+            <ItemTemplate>
+                <%# Eval("Cliente.Nombre") %>
+            </ItemTemplate>
+        </asp:TemplateField>
+
+        <asp:BoundField DataField="Producto" HeaderText="Producto" />
+        <asp:BoundField DataField="Descripción" HeaderText="Descripción" />
+        <asp:BoundField DataField="Estado" HeaderText="Estado" />
+        <asp:BoundField DataField="_createdAt" HeaderText="Fecha de Creación" DataFormatString="{0:dd/MM/yyyy HH:mm}" />
+
+        <asp:TemplateField HeaderText="Acciones">
+            <ItemTemplate>
+                <asp:HyperLink ID="lnkDetalle" runat="server"
+                    NavigateUrl='<%# "DetalleTicket.aspx?id=" + Eval("Id") %>'
+                    Text="Ver detalle" CssClass="btn btn-primary btn-sm" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+
 </asp:Content>
+
+
+
+

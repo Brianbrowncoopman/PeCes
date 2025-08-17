@@ -10,7 +10,7 @@ namespace Modelo.clases
 {
     public class Ticket
     {
-        public string Id { get; set; } 
+        public string Id { get; set; } = Guid.NewGuid().ToString();
 
         public ClienteEntity Cliente { get; set; }
 
