@@ -23,6 +23,7 @@ namespace PeCes
                         lblCliente.Text = "Cliente: " + ticket.Cliente.Nombre;
                         lblProducto.Text = "Producto: " + ticket.Producto;
                         lblDescripcion.Text = "Descripción: " + ticket.Descripción;
+                        lblId.Text = "Id: " + ticket.Cliente.Id;
                     }
                     else
                     {
@@ -36,6 +37,28 @@ namespace PeCes
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                 }
             }
+        }
+
+        protected void btnRegresarListado_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListarTickets.aspx");
+            //falta logica para regresar al listado de tickets
+        }
+
+        protected void btnIrActualizar_Click(object sender, EventArgs e)
+        {
+            //falta logica para ir a la pagina de actualizar ticket
+            string idParam = Request.QueryString["id"];
+            if (!string.IsNullOrEmpty(idParam))
+            {
+                Response.Redirect("ActualizarTicket.aspx?id=" + idParam);
+            }
+            else
+            {
+                lblMensaje.Text = "No se puede actualizar: ID no disponible.";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+            }
+
         }
     }
 }
