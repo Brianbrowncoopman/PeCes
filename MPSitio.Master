@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MPSitio.Master.cs" Inherits="PeCes.MPSitio" %>
+
+<!DOCTYPE html>
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -32,7 +34,7 @@
                 <h4>Búsqueda Avanzada</h4>
                 <asp:Label ID="lblBuscar" runat="server" Text="Buscar por cliente, rut o estado:"></asp:Label>
                 <asp:TextBox ID="txtFiltroBusqueda" runat="server"></asp:TextBox>
-                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
+                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
             
             <hr />

@@ -17,7 +17,7 @@
     <!-- Campos editables del ticket -->
     <asp:TextBox ID="txtProducto" runat="server" Placeholder="Producto" /><br />
     <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" Columns="50" Placeholder="Descripción" /><br />
-    <asp:TextBox ID="txtEstado" runat="server"  ></asp:TextBox> 
+    <!--<asp:TextBox ID="txtEstado" runat="server"  ></asp:TextBox> -->
 
     <div class="form-group">
         <asp:Label ID="lblEstado" runat="server" Text="Estado:" AssociatedControlID="ddlEstado"></asp:Label>

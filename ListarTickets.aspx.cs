@@ -2,6 +2,7 @@
 using Modelo.clases;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 
 namespace PeCes
@@ -25,44 +26,71 @@ namespace PeCes
                 {
                     List<Ticket> listaSimulada = new List<Ticket>
                     {
-                       /*new Ticket
-                       {
-                           Id = Guid.NewGuid().ToString(),
-                           Cliente = new ClienteEntity
-                       {
-                            Nombre = "Juan Pérez",
-                            Rut = "12.345.678-9",
-                            Email = "juan@example.com",
-                            Telefono = "987654321"
-                        },
-                        Producto = "Laptop",
-                        Descripción = "Pantalla rota",
-                        Estado = "Pendiente",
-                        _createdAt = DateTime.Now
-                        }*/
-
+                        // Puedes descomentar este bloque para pruebas
+                        /*
+                        new Ticket
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            Cliente = new ClienteEntity
+                            {
+                                Nombre = "Juan Pérez",
+                                Rut = "12.345.678-9",
+                                Email = "juan@example.com",
+                                Telefono = "987654321"
+                            },
+                            Producto = "Laptop",
+                            Descripción = "Pantalla rota",
+                            Estado = "Pendiente",
+                            _createdAt = DateTime.Now
+                        }
+                        */
                     };
 
                     Session["tickets"] = listaSimulada;
                 }
 
-                // Cargar lista de tickets
+                // Obtener lista de tickets desde sesión
                 List<Ticket> listaTickets = Session["tickets"] as List<Ticket>;
 
-                if (listaTickets != null && listaTickets.Count > 0)
+                // Evaluar si hay filtro en la URL
+                string filtro = Request.QueryString["filtro"];
+                List<Ticket> resultado = listaTickets;
+
+                if (!string.IsNullOrEmpty(filtro) && listaTickets != null)
                 {
-                    gvTickets.DataSource = listaTickets;
+                    filtro = filtro.Trim().ToLower();
+
+                    resultado = listaTickets.Where(t =>
+                        (t.Cliente?.Nombre?.ToLower().Contains(filtro) ?? false) ||
+                        (t.Cliente?.Rut?.ToLower().Contains(filtro) ?? false) ||
+                        (t.Estado?.ToLower().Contains(filtro) ?? false)
+                    ).ToList();
+                }
+
+                // Mostrar resultados filtrados o mensaje si no hay coincidencias
+                if (resultado != null && resultado.Count > 0)
+                {
+                    gvTickets.DataSource = resultado;
                     gvTickets.DataBind();
                     gvTickets.Visible = true;
+
+                    // Ocultar mensaje si no viene desde creación
                     if (string.IsNullOrEmpty(mensaje)) lblMensaje.Visible = false;
                 }
                 else
                 {
                     gvTickets.Visible = false;
+
                     if (string.IsNullOrEmpty(mensaje))
                     {
-                        lblMensaje.Text = "No hay tickets registrados.";
-                        lblMensaje.ForeColor = System.Drawing.Color.DarkOrange;
+                        lblMensaje.Text = !string.IsNullOrEmpty(filtro)
+                            ? "No se encontraron tickets que coincidan con el filtro."
+                            : "No hay tickets registrados.";
+
+                        lblMensaje.ForeColor = !string.IsNullOrEmpty(filtro)
+                            ? System.Drawing.Color.Red
+                            : System.Drawing.Color.DarkOrange;
+
                         lblMensaje.Visible = true;
                     }
                 }
