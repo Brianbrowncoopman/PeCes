@@ -7,10 +7,122 @@
     <title>PeCes</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+    .contenedor-central {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    body {
+        background-color: #eaeaea;
+    }
+</style>
+
+    <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #eaeaea;
+    }
+
+
+
+    h1 {
+        color: #2c3e50;
+        margin-left: 20px;
+    }
+
+    .nav-menu {
+        background-color: #34495e;
+        padding: 10px 20px;
+    }
+
+    .nav-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-menu li {
+        display: inline;
+    }
+
+    .nav-menu a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .nav-menu a:hover {
+        background-color: #2c3e50;
+    }
+
+    .busqueda-avanzada {
+        margin: 20px;
+        padding: 15px;
+        background-color: #ecf0f1;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .busqueda-avanzada h4 {
+        margin-top: 0;
+        color: #2980b9;
+    }
+
+    .busqueda-avanzada label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .busqueda-avanzada input[type="text"] {
+        width: 300px;
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .busqueda-avanzada input[type="submit"],
+    .busqueda-avanzada input[type="button"] {
+        padding: 8px 16px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .busqueda-avanzada input[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+
+    hr {
+        margin: 30px 0;
+        border: none;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="contenedor-central">
             <table>
                 <tr>
                     <td>
@@ -30,13 +142,13 @@
                 </ul>
             </div>
 
-            <div class="busqueda-avanzada" style="padding: 10px; margin-top: 10px; background-color: #f2f2f2;">
+            <div class="busqueda-avanzada">
                 <h4>Búsqueda Avanzada</h4>
                 <asp:Label ID="lblBuscar" runat="server" Text="Buscar por cliente, rut o estado:"></asp:Label>
                 <asp:TextBox ID="txtFiltroBusqueda" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
-            
+
             <hr />
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -44,4 +156,5 @@
         </div>
     </form>
 </body>
+
 </html>
