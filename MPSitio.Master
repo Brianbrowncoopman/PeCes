@@ -17,6 +17,14 @@
         border-radius: 8px;
     }
 
+    .contenido-centrado {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
     body {
         background-color: #eaeaea;
     }
@@ -144,7 +152,7 @@
 
             <div class="busqueda-avanzada">
                 <h4>Búsqueda Avanzada</h4>
-                <asp:Label ID="lblBuscar" runat="server" Text="Buscar por cliente, rut o estado:"></asp:Label>
+                <asp:Label ID="lblBuscar" runat="server" Text="Buscar por cliente, rut o ...:"></asp:Label>
                 <asp:TextBox ID="txtFiltroBusqueda" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
