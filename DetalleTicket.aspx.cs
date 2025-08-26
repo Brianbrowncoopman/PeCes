@@ -20,10 +20,16 @@ namespace PeCes
 
                     if (ticket != null)
                     {
-                        lblCliente.Text = "Cliente: " + ticket.Cliente.Nombre;
-                        lblProducto.Text = "Producto: " + ticket.Producto;
-                        lblDescripcion.Text = "Descripción: " + ticket.Descripción;
-                        lblId.Text = "Id: " + ticket.Cliente.Id;
+                        lblCliente.Text = "<strong>Cliente:</strong> " + ticket.Cliente.Nombre;
+                        lblProducto.Text = "<strong>Producto:</strong> " + ticket.Producto;
+                        lblDescripcion.Text = "<strong>Descripción:</strong> " + ticket.Descripción;
+                        lblId.Text = "<strong>Id:</strong> " + ticket.Cliente.Id;
+                        lblEmail.Text = "<strong>Email:</strong> " + ticket.Cliente.Email;
+                        lblTelefono.Text = "<strong>Telefono:</strong> " + ticket.Cliente.Telefono;
+                        lblRut.Text = "<strong>Rut:</strong> " + ticket.Cliente.Rut;
+                        lblRazonSocial.Text = "<strong>Tipo de cliente:</strong> " + (ticket.Cliente is Datos.Clases.EmpresaEntity empresa ? "Empresa - Razón Social: " + empresa.RazonSocial : "Particular");
+                        lblEstado.Text = "<strong>Estado del ticket:</strong> " + ticket.Estado;
+                        lblCreacion.Text = "<strong>Fecha de cracion:</strong> " + ticket._createdAt;
                     }
                     else
                     {
@@ -47,7 +53,7 @@ namespace PeCes
 
         protected void btnIrActualizar_Click(object sender, EventArgs e)
         {
-            //falta logica para ir a la pagina de actualizar ticket
+            // logica para ir a la pagina de actualizar ticket
             string idParam = Request.QueryString["id"];
             if (!string.IsNullOrEmpty(idParam))
             {

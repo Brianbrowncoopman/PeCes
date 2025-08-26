@@ -42,5 +42,7 @@
         <asp:Button ID="btnRegresarDetalle" runat="server" Text="Regresar a detalle" OnClick="btnRegresarDetalle_click" CssClass="btn btn-success" />
         <asp:Button ID="btbIrAListado" runat="server" Text="Regresar al listado" OnClick="btbIrAListado_click" CssClass="btn btn-success" />
     </div>
+
+    
     
 </asp:Content>
