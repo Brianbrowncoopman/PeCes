@@ -61,9 +61,15 @@ namespace PeCes
                     filtro = filtro.Trim().ToLower();
 
                     resultado = listaTickets.Where(t =>
-                        (t.Cliente?.Nombre?.ToLower().Contains(filtro) ?? false) ||
-                        (t.Cliente?.Rut?.ToLower().Contains(filtro) ?? false) ||
-                        (t.Estado?.ToLower().Contains(filtro) ?? false)
+                        (!string.IsNullOrEmpty(t.Id) && t.Id.ToLower().Contains(filtro)) ||
+                        (!string.IsNullOrEmpty(t.Cliente?.Nombre) && t.Cliente.Nombre.ToLower().Contains(filtro)) ||
+                        (!string.IsNullOrEmpty(t.Cliente?.Rut) && t.Cliente.Rut.ToLower().Contains(filtro)) ||
+                        (!string.IsNullOrEmpty(t.Cliente?.Email) && t.Cliente.Email.ToLower().Contains(filtro)) ||
+                        (!string.IsNullOrEmpty(t.Cliente?.Telefono) && t.Cliente.Telefono.ToLower().Contains(filtro)) ||
+                        (!string.IsNullOrEmpty(t.Producto) && t.Producto.ToLower().Contains(filtro)) ||
+                        (!string.IsNullOrEmpty(t.Descripción) && t.Descripción.ToLower().Contains(filtro)) ||
+                        (!string.IsNullOrEmpty(t.Estado) && t.Estado.ToLower().Contains(filtro)) ||
+                        (t.Cliente is EmpresaEntity empresa && !string.IsNullOrEmpty(empresa.RazonSocial) && empresa.RazonSocial.ToLower().Contains(filtro))
                     ).ToList();
                 }
 
