@@ -4,19 +4,38 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
     <asp:Label ID="lblMensaje" runat="server" Font-Bold="True" ForeColor="Red" />
+    <br />
 
     <!-- Campos no editables -->
+
     <asp:Label ID="lblId" runat="server" Text="ID:" /><br />
     <asp:Label ID="lblNombreCliente" runat="server" Text="Nombre Cliente:" /><br />
 
     <!-- Campos editables del cliente -->
-    <asp:TextBox ID="txtTelefono" runat="server" Placeholder="Teléfono" /><br />
-    <asp:TextBox ID="txtEmail" runat="server" Placeholder="Email" /><br />
+    <div class="form-group">
+        <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" AssociatedControlID="txtTelefono" CssClass="form-label" />
+        <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" />
+    </div>
+
+    <div class="form-group">
+        <asp:Label ID="lblEmail" runat="server" Text="Email:" AssociatedControlID="txtEmail" CssClass="form-label" />
+        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" />
+    </div>
+
 
     <!-- Campos editables del ticket -->
-    <asp:TextBox ID="txtProducto" runat="server" Placeholder="Producto" /><br />
-    <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" Columns="50" Placeholder="Descripción" /><br />
+    <div class="form-group">
+        <asp:Label ID="lblProducto" runat="server" Text="Producto:" AssociatedControlID="txtProducto" CssClass="form-label" />
+        <asp:TextBox ID="txtProducto" runat="server" CssClass="form-control" />
+    </div>
+
+    <div class="form-group">
+        <asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" AssociatedControlID="txtDescripcion" CssClass="form-label" />
+        <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control" />
+    </div>
+
     <!--<asp:TextBox ID="txtEstado" runat="server"  ></asp:TextBox> -->
 
     <div class="form-group">

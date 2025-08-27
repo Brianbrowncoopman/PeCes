@@ -20,14 +20,14 @@ namespace PeCes
                     if (ticket != null)
                     {
                         // Mostrar datos no editables
-                        lblId.Text = "ID: " + ticket.Id;
-                        lblNombreCliente.Text = "Cliente: " + ticket.Cliente.Nombre;
+                        lblId.Text = "ID del Ticket: " + ticket.Id;
+                        lblNombreCliente.Text ="Nombre: " +  ticket.Cliente.Nombre;
 
                         // Cargar datos editables
-                        txtTelefono.Text = ticket.Cliente.Telefono;
-                        txtEmail.Text = ticket.Cliente.Email;
-                        txtProducto.Text = ticket.Producto;
-                        txtDescripcion.Text = ticket.Descripción;
+                        txtTelefono.Text =  ticket.Cliente.Telefono;
+                        txtEmail.Text =  ticket.Cliente.Email;
+                        txtProducto.Text =  ticket.Producto;
+                        txtDescripcion.Text =  ticket.Descripción;
                         //txtEstado.Text = ticket.Estado;
                         ddlEstado.SelectedValue = ticket.Estado;
 

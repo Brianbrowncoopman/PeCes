@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PeCes
 {
-    public partial class MPSitio : System.Web.UI.MasterPage //podria generar error
+    public partial class MPSitio : System.Web.UI.MasterPage 
     {
         protected void Page_Load(object sender, EventArgs e)
         {
