@@ -101,7 +101,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="ActualizarTicket.aspx" />
-    <Content Include="AgregarTickets.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -195,13 +194,6 @@
     </Compile>
     <Compile Include="ActualizarTicket.aspx.designer.cs">
       <DependentUpon>ActualizarTicket.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AgregarTickets.aspx.cs">
-      <DependentUpon>AgregarTickets.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgregarTickets.aspx.designer.cs">
-      <DependentUpon>AgregarTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

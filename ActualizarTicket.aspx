@@ -5,12 +5,13 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <asp:Label ID="lblMensaje" runat="server" Font-Bold="True" ForeColor="Red" />
+    <asp:Label ID="lblMensaje" runat="server" Font-Bold="True" ForeColor="Red" /> <!--aca se pasa el id-->
     <br />
 
     <!-- Campos no editables -->
 
-    <asp:Label ID="lblId" runat="server" Text="ID:" /><br />
+    <asp:Label ID="lblId" runat="server" Text="ID:" /><br /> <!--aca pasa el id-->
+
     <asp:Label ID="lblNombreCliente" runat="server" Text="Nombre Cliente:" /><br />
 
     <!-- Campos editables del cliente -->

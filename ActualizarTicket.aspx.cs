@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
-
+                                     //esta es la logica  para actualizar ticket 
 namespace PeCes
 {
     public partial class ActualizarTicket : System.Web.UI.Page
@@ -11,11 +11,11 @@ namespace PeCes
         {
             if (!IsPostBack)
             {
-                string idParam = Request.QueryString["id"];
+                string idParam = Request.QueryString["id"];   //
                 if (!string.IsNullOrEmpty(idParam))
                 {
-                    List<Ticket> listaTickets = Session["tickets"] as List<Ticket>;
-                    Ticket ticket = listaTickets?.Find(t => t.Id == idParam);
+                    List<Ticket> listaTickets = Session["tickets"] as List<Ticket>;//
+                    Ticket ticket = listaTickets?.Find(t => t.Id == idParam); // 
 
                     if (ticket != null)
                     {
@@ -28,7 +28,6 @@ namespace PeCes
                         txtEmail.Text =  ticket.Cliente.Email;
                         txtProducto.Text =  ticket.Producto;
                         txtDescripcion.Text =  ticket.Descripción;
-                        //txtEstado.Text = ticket.Estado;
                         ddlEstado.SelectedValue = ticket.Estado;
 
                     }
@@ -44,6 +43,7 @@ namespace PeCes
             }
         }
 
+                        //logica para el boton guardar lo actualizado
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             string idParam = Request.QueryString["id"];
@@ -71,6 +71,7 @@ namespace PeCes
             }
         }
 
+                        //logica para el boton de regresar al detalle
         protected void btnRegresarDetalle_click(object sender, EventArgs e)
         {
             string idParam = Request.QueryString["id"];
@@ -84,7 +85,7 @@ namespace PeCes
             }
         }
 
-
+                          //logica para el boton de regresar al listado
         protected void btbIrAListado_click(object sender, EventArgs e)
         {
             //btn ir al listado

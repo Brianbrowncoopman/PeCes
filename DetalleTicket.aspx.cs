@@ -16,7 +16,7 @@ namespace PeCes
                 {
                     // Recuperar lista de tickets desde la sesión
                     List<Ticket> listaTickets = Session["tickets"] as List<Ticket>;
-                    Ticket ticket = listaTickets?.Find(t => t.Id == idParam); // ✅ Comparación string == string
+                    Ticket ticket = listaTickets?.Find(t => t.Id == idParam); // 
 
                     if (ticket != null)
                     {

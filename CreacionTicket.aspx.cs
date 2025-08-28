@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+                               //logica para la creacion de ticket
 namespace PeCes
 {
     public partial class CreacionTicket : System.Web.UI.Page

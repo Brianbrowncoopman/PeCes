@@ -244,14 +244,14 @@
                     <li><asp:HyperLink ID="lnkListarTodos" runat="server" NavigateUrl="~/ListarTickets.aspx">Listar todos los tickets</asp:HyperLink></li>
                 </ul>
             </div>
-
+            <!--////////////////////////////////-->
             <div class="busqueda-avanzada">
                 <h4>Búsqueda Avanzada</h4>
                 <asp:Label ID="lblBuscar" runat="server" Text="Buscar por cliente, rut o ...:"></asp:Label>
                 <asp:TextBox ID="txtFiltroBusqueda" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
-
+            <!--////////////////////////////////-->
             <hr />
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

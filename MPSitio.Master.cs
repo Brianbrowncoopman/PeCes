@@ -22,7 +22,7 @@ namespace PeCes
 
 
         }
-
+        //////////////////////////////////////////////////////////////////////////////////////
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             // Lógica para cbuscar 
@@ -42,3 +42,4 @@ namespace PeCes
         }
     }
 }
+
