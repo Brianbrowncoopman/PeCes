@@ -23,7 +23,7 @@ namespace Datos.Clases
             }
         }
 
-        //public static object ListadoTickets { get; set; }
+        
     }
 
 }

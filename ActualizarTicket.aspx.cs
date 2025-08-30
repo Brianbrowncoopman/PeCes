@@ -11,11 +11,11 @@ namespace PeCes
         {
             if (!IsPostBack)
             {
-                string idParam = Request.QueryString["id"];   //
+                string idParam = Request.QueryString["id"];   
                 if (!string.IsNullOrEmpty(idParam))
                 {
-                    List<Ticket> listaTickets = Session["tickets"] as List<Ticket>;//
-                    Ticket ticket = listaTickets?.Find(t => t.Id == idParam); // 
+                    List<Ticket> listaTickets = Session["tickets"] as List<Ticket>;
+                    Ticket ticket = listaTickets?.Find(t => t.Id == idParam);  
 
                     if (ticket != null)
                     {

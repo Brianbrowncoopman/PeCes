@@ -17,12 +17,7 @@ namespace PeCes
 
         }
 
-        /*protected void ddlTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            bool esEmpresa = ddlTipoCliente.SelectedValue == "Empresa";
-            txtRazonSocial.Enabled = esEmpresa;
-            rfvRazonSocial.Enabled = esEmpresa;
-        }*/
+        
         protected void ddlTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool esEmpresa = ddlTipoCliente.SelectedValue == "Empresa";
@@ -86,7 +81,7 @@ namespace PeCes
 
                 // Redirigir a la página de listado
                 
-                Response.Redirect("~/ListarTickets.aspx?mensaje=El ticket fue creado correctamente");
+                Response.Redirect("~/ListarTickets.aspx?mensaje=El ticket fue creado con éxito");
 
             }
         }

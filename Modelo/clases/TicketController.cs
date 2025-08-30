@@ -256,7 +256,7 @@ namespace Modelo.clases
             return resultados;
         }
 
-        // Método auxiliar para conversión ENTITY -> MODELO
+        
 
     }
 }
