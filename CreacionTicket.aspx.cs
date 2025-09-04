@@ -25,7 +25,7 @@ namespace PeCes
             txtRazonSocial.Enabled = esEmpresa;
             rfvRazonSocial.Enabled = esEmpresa;
 
-            // Opcional: limpiar el campo si se desactiva
+            //  limpiar el campo si se desactiva
             if (!esEmpresa)
             {
                 txtRazonSocial.Text = string.Empty;
@@ -36,6 +36,40 @@ namespace PeCes
         {
             if (Page.IsValid)
             {
+                bool esEmpresa = ddlTipoCliente.SelectedValue == "Empresa";
+
+                //  Validación condicional de Razón Social
+                if (esEmpresa && string.IsNullOrWhiteSpace(txtRazonSocial.Text))
+                {
+                    rfvRazonSocial.IsValid = false;
+                    return;
+                }
+                //
+                if (txtNombre.Text.Length < 5)
+                {
+                    
+                    return;
+                }
+
+                var rutRegex = new System.Text.RegularExpressions.Regex(@"^(\d{8,9}-[\dkK])$");
+                if (!rutRegex.IsMatch(txtRut.Text))
+                {
+                    return;
+                }
+
+                var emailRegex = new System.Text.RegularExpressions.Regex(@"^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$");
+                if (!emailRegex.IsMatch(txtEmail.Text))
+                {
+                    return;
+                }
+
+                if (txtProducto.Text.Length < 10 || txtDescripcion.Text.Length < 10)
+                {
+                    return;
+                }
+
+                //
+
                 ClienteEntity cliente;
 
                 if (ddlTipoCliente.SelectedValue == "Empresa")
