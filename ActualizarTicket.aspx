@@ -77,6 +77,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblMensaje" runat="server" CssClass="mensaje-error" />
 
+    <tr>
+    <td colspan="2">
+        <asp:ValidationSummary
+            ID="vsActualizarTicket" 
+            runat="server" 
+            ValidationGroup="vgActualizarTicket" 
+            ForeColor="Red" 
+            HeaderText="Por favor corrija los siguientes errores:" 
+            DisplayMode="BulletList" />
+    </td>
+</tr>
+
+
     <table class="formulario-actualizar" cellpadding="8" cellspacing="0">
         <!-- Campos no editables -->
         <tr>
@@ -91,21 +104,37 @@
         <!-- Campos editables del cliente -->
         <tr>
             <td><asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" AssociatedControlID="txtTelefono" /></td>
-            <td><asp:TextBox ID="txtTelefono" runat="server" BackColor="#E6F0F0"/></td>
+            <td>
+                <asp:TextBox ID="txtTelefono" runat="server" BackColor="#E6F0F0"/>
+                <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Teléfono es requerido" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+                <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="txtTelefono" ValidationExpression="^[0-9]{1,9}$" ErrorMessage="Formato de Telefono inválido. Ej: 56912345678" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+            </td>
         </tr>
         <tr>
             <td><asp:Label ID="lblEmail" runat="server" Text="Email:" AssociatedControlID="txtEmail" /></td>
-            <td><asp:TextBox ID="txtEmail" runat="server" BackColor="#E6F0F0"/></td>
+            <td>
+                <asp:TextBox ID="txtEmail" runat="server" BackColor="#E6F0F0"/>
+                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email es requerido" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+                <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ValidationExpression="^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$" ErrorMessage="Formato de email inválido" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+            </td>
         </tr>
 
         <!-- Campos editables del ticket -->
         <tr>
             <td><asp:Label ID="lblProducto" runat="server" Text="Producto:" AssociatedControlID="txtProducto" /></td>
-            <td><asp:TextBox ID="txtProducto" runat="server" BackColor="#E6F0F0"/></td>
+            <td>
+                <asp:TextBox ID="txtProducto" runat="server" BackColor="#E6F0F0"/>
+                <asp:RequiredFieldValidator ID="rfvProducto" runat="server" ControlToValidate="txtProducto" ErrorMessage="Producto es requerido" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+                <asp:RegularExpressionValidator ID="revProducto" runat="server" ControlToValidate="txtProducto" ValidationExpression=".{10,}" ErrorMessage="El producto debe tener al menos 10 caracteres" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+            </td>
         </tr>
         <tr>
             <td><asp:Label ID="lblDescripcion" runat="server" Text="Descripción:" AssociatedControlID="txtDescripcion" /></td>
-            <td><asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" BackColor="#E6F0F0"/></td>
+            <td>
+                <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" BackColor="#E6F0F0"/>
+                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Descripción es requerida" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+                <asp:RegularExpressionValidator ID="revDescripcion" runat="server" ControlToValidate="txtDescripcion" ValidationExpression=".{10,}" ErrorMessage="La descripción debe tener al menos 10 caracteres" ForeColor="Red" Display="Dynamic" ValidationGroup="vgActualizarTicket" />
+            </td>
         </tr>
         <tr>
             <td><asp:Label ID="lblEstado" runat="server" Text="Estado:" AssociatedControlID="ddlEstado" /></td>
@@ -119,14 +148,18 @@
                 <asp:RequiredFieldValidator ID="rfvEstado" runat="server"
                     ControlToValidate="ddlEstado" InitialValue=""
                     ErrorMessage="Seleccione estado del ticket"
-                    ForeColor="Red" Display="Dynamic" />
+                    ForeColor="Red" Display="Dynamic" 
+                    ValidationGroup="vgActualizarTicket"/>
             </td>
         </tr>
+
+        
+
 
         <!-- Botón para guardar -->
         <tr>
             <td colspan="2" class="btn-centrado">
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" CssClass="btn-verde" />
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" CssClass="btn-verde" ValidationGroup="vgActualizarTicket"/>
             </td>
         </tr>
 

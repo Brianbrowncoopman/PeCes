@@ -63,6 +63,12 @@ namespace PeCes
                     return;
                 }
 
+                var telefonoRegex = new System.Text.RegularExpressions.Regex(@"^[0-9]{1,9}$");     
+                if (!telefonoRegex.IsMatch(txtTelefono.Text))
+                {
+                    return;
+                }
+
                 if (txtProducto.Text.Length < 10 || txtDescripcion.Text.Length < 10)
                 {
                     return;

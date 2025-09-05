@@ -112,6 +112,7 @@
             <td>
                 <asp:TextBox ID="txtTelefono" runat="server" TextMode="Number" BackColor="#E6F0F0" />
                 <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Teléfono es requerido" ForeColor="Red" Display="Dynamic" ValidationGroup="vgCrearTicket" />
+                <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="txtTelefono" ValidationExpression="^[0-9]{1,9}$" ErrorMessage="Formato de Telefono inválido. Ej: 56912345678" ForeColor="Red" Display="Dynamic" ValidationGroup="vgCrearTicket" />
             </td>
         </tr>
 
